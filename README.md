@@ -2,14 +2,14 @@
 
 - a fairly simple tts library in python.
 
->! warning
->library is not yet finished.
+> [!Warning]
+> library is not yet finished.
 
 usage :
 
 ```python
 engine = Engine('_espeak')
 engine.init()
-engine.speak()
+engine.speak('Hello, World!')
 
 ```
