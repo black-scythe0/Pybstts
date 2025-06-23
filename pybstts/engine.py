@@ -1,14 +1,21 @@
 import os
-from tts import Exceptions
+import importlib
+Exceptions = importlib.import_module(f'tts._Exceptions')
 
 class Engine:
 
-    def __init__():
-        pass
+    def __init__(self, tts: str) -> None:
+        self.tts = tts
+        self._tts = importlib.import_module(f'tts.{tts}')
+        
 
-    def init(): #initialize the engine, may take arguements ,
-                # if no arguements are given then figure out it self which engine to use.
-        pass      
+    def init(self) -> None:
+        if self.tts == '_espeak':
+            self.tts = self._tts.Espeak()
+            self.tts.check_lib()
+            self.tts.load_lib()
+            self.tts.lib_init()
+                      
 
     def get_info():  #get info of the model used here
         pass
@@ -16,8 +23,9 @@ class Engine:
     def voice():
         pass   #Take arguements to select voices available in the engine.
 
-    def speak(text): #take arguements to speak.
-        pass
+    def speak(self, text: str | None) -> None: #take arguements to speak.
+
+        self.tts.speak(text) if text != None else None
 
     def __repr__():
         pass
@@ -29,3 +37,9 @@ class Engine:
             'voice',
             'speak'
         ]
+
+
+
+engine = Engine('_espeak')
+engine.init()
+engine.speak('hello')
