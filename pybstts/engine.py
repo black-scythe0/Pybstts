@@ -37,9 +37,3 @@ class Engine:
             'voice',
             'speak'
         ]
-
-
-
-engine = Engine('_espeak')
-engine.init()
-engine.speak('hello')
