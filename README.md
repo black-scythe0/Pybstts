@@ -2,8 +2,8 @@
 
 - a fairly simple tts library in python.
 
-> ! warning
-> library is not finished
+>! warning
+>library is not yet finished.
 
 usage :
 
