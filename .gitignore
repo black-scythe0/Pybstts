@@ -1,3 +1,9 @@
 #--text-files
 
 *.txt
+
+#--extra-
+
+pybstts/__pycache__/
+pybstts/tts/__pycache__/
+.python-version
