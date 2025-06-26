@@ -1,6 +1,6 @@
 ## Pybstts
 
-- a fairly simple tts library in python.
+- A fairly simple tts library in python.
 
 > [!Warning]
 > library is not yet finished.
@@ -15,3 +15,11 @@ engine.init()
 engine.speak('Hello, World!')
 
 ```
+
+### Supported tts
+
+- espeak
+
+### Supported platform 
+
+- Termux
