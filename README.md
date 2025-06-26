@@ -8,6 +8,8 @@
 usage :
 
 ```python
+from pybstts import Engine
+
 engine = Engine('_espeak')
 engine.init()
 engine.speak('Hello, World!')
