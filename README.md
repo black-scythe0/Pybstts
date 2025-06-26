@@ -23,3 +23,9 @@ engine.speak('Hello, World!')
 ### Supported platform 
 
 - Termux
+
+requirements:
+
+```sh
+~$ pkg install espeak espeak-static
+```
