@@ -8,7 +8,7 @@ fi
 
 
 
-if [ $1 == "clean" ]; then
+if [ $1 = "clean" ]; then
     rm -rf pybstts.egg-info dist/
 
 fi
