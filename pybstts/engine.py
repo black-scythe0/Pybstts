@@ -6,21 +6,21 @@ _Exceptions = importlib.import_module('pybstts.tts._Exceptions')
 
 class Engine:
 
-    def __init__(self, tts: str, TTS=TTS(), _Exceptions=_Exceptions) -> None:
-        self.tts :str = tts
-        self._tts = TTS.load_tts(tts)
-        self.tts_engine = None;        
+    def __init__(this, tts: str, TTS=TTS(), _Exceptions=_Exceptions) -> None:
+        this.tts :str = tts
+        this._tts = TTS.load_tts(tts)
+        this.tts_engine = None;        
 
-    def init(self) -> int:
-        if self.tts == '_espeak':
-            self.tts_engine = self._tts.Espeak()
-            self.tts_engine.check_lib()
-            self.tts_engine.load_lib()
-            self.tts_engine.lib_init()
+    def init(this) -> None:
+        if this.tts == '_espeak':
+            this.tts_engine = this._tts.Espeak()
+            this.tts_engine.check_lib()
+            this.tts_engine.load_lib()
+            this.tts_engine.lib_init()
         else:
             raise _Exceptions.EngineNotInitialized  
-        return 21
-    def get_info(self):  #get info of the model used here
+
+    def get_info(this):  #get info of the model used here
         return [
         f'lib: pybstts', 
         f'tts: {self.tts}'
@@ -29,15 +29,15 @@ class Engine:
     def voice():
         pass   #Take arguements to select voices available in the engine.
 
-    def speak(self, text: str | None) -> None: #take arguements to speak.
+    def speak(this, text: str | None) -> None: #take arguements to speak.
         try: 
             if text != None :       
-                self.tts_engine.speak(text)
+                this.tts_engine.speak(text)
             else:
                 pass            
-        except:
+        except: 
             raise _Exceptions.EngineNotInitialized
-    def __repr__(self):
+    def __repr__(this):
         return '\'Engine\' from pybstts '
         
     def __dir__():

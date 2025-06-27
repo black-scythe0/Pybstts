@@ -6,48 +6,48 @@ from ._Exceptions import (LibraryNotFound,
                       )
 
 class Espeak:
-    def __init__(self) -> None:
-        self.libespeak = None
-        self.lib_espeak_posix :str = 'libespeak-ng.so'
-        self.lib_path :str = ''
-        self.lib_paths = [
+    def __init__(this) -> None:
+        this.libespeak: None = None
+        this.lib_espeak_posix :str = 'libespeak-ng.so'
+        this.lib_path :str = ''
+        this.lib_paths = [
 
             # Termux
             '/data/data/com.termux/files/usr/lib/libespeak-ng.so',
             '/data/data/com.termux/files/usr/local/lib/libepeak-ng.so'
         ]
 
-    def check_lib(self) -> int:
-        for lib_path in self.lib_paths:
+    def check_lib(this) -> str:
+        for lib_path in this.lib_paths:
             if os.path.isfile(lib_path):
-                self.lib_path=lib_path    
+                this.lib_path=lib_path    
                 return lib_path   
 
         else:
-            raise LibraryNotFound(self.lib_espeak_posix) 
+            raise LibraryNotFound(this.lib_espeak_posix) 
 
-    def load_lib(self) -> None:
+    def load_lib(this) -> None:
 
         try:
-            self.libespeak = ctypes.cdll.LoadLibrary(self.lib_path)
+            this.libespeak = ctypes.cdll.LoadLibrary(this.lib_path)
         except:
-            LibraryFailedToLoad(self.lib_espeak_posix)
+            LibraryFailedToLoad(this.lib_espeak_posix)
             
-    def lib_init(self, lang=None) -> None:
+    def lib_init(this, lang=None) -> None:
 
 
-        self.libespeak.espeak_Initialize.argtypes = [ctypes.c_int,
+        this.libespeak.espeak_Initialize.argtypes = [ctypes.c_int,
                                                 ctypes.c_int,
                                                 ctypes.c_char_p,
                                                 ctypes.c_void_p]
                                        
-        self.libespeak.espeak_Initialize(0,0,None, None)
-        self.libespeak.espeak_SetVoiceByName(b'en')
+        this.libespeak.espeak_Initialize(0,0,None, None)
+        this.libespeak.espeak_SetVoiceByName(b'en')
      
-    def speak(self,text: str) -> None:     
+    def speak(this,text: str) -> None:     
         text_bytes = text.encode('utf-8')
-        self.libespeak.espeak_Synth(text_bytes, len(text_bytes), 0, 0, 0, 0, None, None)
-        self.libespeak.espeak_Synchronize()
+        this.libespeak.espeak_Synth(text_bytes, len(text_bytes), 0, 0, 0, 0, None, None)
+        this.libespeak.espeak_Synchronize()
                          
 
 
