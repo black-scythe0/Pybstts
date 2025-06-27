@@ -29,3 +29,13 @@ requirements:
 ```sh
 ~$ pkg install espeak espeak-static
 ```
+### Build instructions
+
+reqirements:
+```sh
+~$ pip install build wheel 
+```
+To build:
+```sh
+~$ bash build.sh
+```
