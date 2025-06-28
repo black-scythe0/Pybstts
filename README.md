@@ -31,7 +31,7 @@ requirements:
 ```
 ### Build instructions
 
-reqirements:
+requirements:
 ```sh
 ~$ pip install build wheel 
 ```
