@@ -10,8 +10,3 @@ class TTS:
             return (load_tts := importlib.import_module(f'pybstts.tts.{tts}'))
         except:
             raise this._Exceptions.EngineFailedToLoad
-
-if __name__ == '__main__':    
-    a = importlib.import_module('tts._Exceptions')
-    print(TTS.load_tts('_espeak'))    
-
