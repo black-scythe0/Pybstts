@@ -13,12 +13,13 @@ class Engine:
     get_info();   to get info about the tts
     voice();      to change voice 
     '''
-    def __init__(this,
+    def __init__(
+             this,
              tts: str,
-            TTS=TTS(),
-           _Exceptions= importlib
-                               .import_module('pybstts.tts._Exceptions')
-                  ) -> None:
+             TTS = TTS(),
+             _Exceptions = importlib
+            .import_module('pybstts.tts._Exceptions')
+            ) -> None:
 
         this.tts :str = tts
         this._tts = TTS.load_tts(tts)
@@ -42,7 +43,7 @@ class Engine:
         '''
         return [
         f'lib: pybstts', 
-        f'tts: {self.tts}'
+        f'tts: {this.tts}'
         ]
 
     def voice(this):
@@ -52,13 +53,13 @@ class Engine:
         '''
         Takes string arguements to speak.
 
-        '''  
-        try: 
-            if text != None :       
+        '''
+        try:
+            if text != None :
                 this.tts_engine.speak(text)
             else:
-                pass            
-        except: 
+                pass
+        except:
             raise this._Exceptions.EngineNotInitialized
     def __repr__(this):
         '''

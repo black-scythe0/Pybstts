@@ -1,9 +1,11 @@
 import os
 import sys
 import ctypes
-from ._Exceptions import (LibraryNotFound,
-                      LibraryFailedToLoad,
-                      )
+from ._Exceptions import(
+
+LibraryNotFound,
+LibraryFailedToLoad,
+                    )
 
 class Espeak:
     def __init__(this) -> None:
@@ -36,17 +38,29 @@ class Espeak:
     def lib_init(this, lang=None) -> None:
 
 
-        this.libespeak.espeak_Initialize.argtypes = [ctypes.c_int,
-                                                ctypes.c_int,
-                                                ctypes.c_char_p,
-                                                ctypes.c_void_p]
+        this.libespeak
+            .espeak_Initialize
+            .argtypes = [
+                    ctypes.c_int,
+                    ctypes.c_int,
+                    ctypes.c_char_p,
+                    ctypes.c_void_p
+                     ]
                                        
-        this.libespeak.espeak_Initialize(0,0,None, None)
-        this.libespeak.espeak_SetVoiceByName(b'en')
+        this.libespeak
+            .espeak_Initialize(0,0,None, None)
+        this.libespeak
+            .espeak_SetVoiceByName(b'en')
      
     def speak(this,text: str) -> None:     
         text_bytes = text.encode('utf-8')
-        this.libespeak.espeak_Synth(text_bytes, len(text_bytes), 0, 0, 0, 0, None, None)
+        this.libespeak.
+            .espeak_Synth(
+                          text_bytes,
+                          len(text_bytes),
+                          0, 0, 0, 0,
+                          None, None
+                           )
         this.libespeak.espeak_Synchronize()
                          
 
